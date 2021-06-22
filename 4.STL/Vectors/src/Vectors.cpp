@@ -51,9 +51,9 @@ int main() {
     auto printLambda = [](const string& elem) { std::cout << elem << " "; };
     // cbegin() returns a constant iterator
     for_each(vect5.cbegin(), vect5.cend(), printLambda);
-    cout << endl;
+    cout << endl << endl;;
 
-    // Vector capcity is increased
+    // Vector capacity is increased
     vector<double> numbers(0);
     int capacity = numbers.capacity();
     for (int i = 0; i < 10000; i++) {
@@ -63,6 +63,25 @@ int main() {
         }
         numbers.push_back(i);
     }
+    cout << endl;
+
+    // 2D vectors, 3 * 4 matrix
+    vector< vector<int> > grid(3, vector<int>(4, 0));
+
+    for (int row = 0; row < grid.size(); row++) {
+        for (int col = 0; col < grid[row].size(); col++) {
+            grid[row][col] = row * (grid.size() + 1) + col;
+        }
+    }
+
+    for (const auto& row : grid) {
+        for (const auto &elem : row) {
+            cout << elem << " ";
+        }
+        cout << endl;
+    }
+
+
 
     return 0;
 }
