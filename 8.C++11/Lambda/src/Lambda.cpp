@@ -94,5 +94,17 @@ int main() {
     Test test;
     test.run();
 
+    cout << endl;
+
+    // Mutable lambdas
+
+    int cats = 5;
+    // cats is passed by value, but mutable allows us to change its local copy
+    [cats]() mutable {
+        cats = 8;
+        cout << cats << endl; // Prints 8
+    }();
+    cout << cats << endl; // Prints 5
+
     return 0;
 }
